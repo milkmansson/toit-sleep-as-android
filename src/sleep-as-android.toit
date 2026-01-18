@@ -259,7 +259,6 @@ class Sleep-as-android:
   static DEFAULT-TLS-PORT_ ::= 8883
 
   logger_/log.Logger := ?
-  routes_/Map := {:}
   client_/mqtt.Client? := null
   topic_/string := ?
   topic-callback_/Lambda? := null
@@ -286,12 +285,12 @@ class Sleep-as-android:
     // Using routes method to avoid catch-22 defined in docs.
     routes/Map := {topic_ : topic-callback_}
     if tls:
-      if not mqtt-port: mqtt-port = DEFAULT-TLS-PORT_
+      port := mqtt-port ? mqtt-port : DEFAULT-TLS-PORT_
       certificate-roots.install-common-trusted-roots
-      client_ = mqtt.Client.tls --host=mqtt-host --routes=routes --port=mqtt-port --logger=(logger_.with-name "mqtt")
+      client_ = mqtt.Client.tls --host=mqtt-host --routes=routes --port=port --logger=(logger_.with-name "mqtt")
     else:
-      if not mqtt-port: mqtt-port = DEFAULT-PORT_
-      client_ = mqtt.Client --host=mqtt-host --routes=routes --port=mqtt-port --logger=(logger_.with-name "mqtt")
+      port := mqtt-port ? mqtt-port : DEFAULT-PORT_
+      client_ = mqtt.Client --host=mqtt-host --routes=routes --port=port --logger=(logger_.with-name "mqtt")
 
     options := mqtt.SessionOptions
         --client-id=client-id
@@ -326,19 +325,25 @@ class Sleep-as-android:
         decoded = json.decode payload
 
       if exception:
-        logger_.error "invalid json message from '$topic'" --tags={"exception":exception}
+        logger_.error "invalid json message" --tags={"topic":topic, "exception":exception}
       else:
-        logger_.debug "received json from '$topic': $decoded"
-        event-name := ""
-        if decoded.contains "event":
-          event-name = decoded["event"]
+        logger_.debug "received valid json" --tags={"topic":topic, "content":decoded}
 
-        if event-lambdas_.contains event-name:
-          event-lambdas_[event-name].call decoded
-        else if event-list_.contains event-name:
-          catch-all_.call decoded
-        else:
-          logger_.error "unhandled event" --tags=decoded
+      handle-event_ decoded
+
+  handle-event_ json-map/Map -> none:
+    event-name := ""
+    if json-map.contains "event":
+      event-name = json-map["event"]
+
+    if event-lambdas_.contains event-name:
+      event-lambdas_[event-name].call json-map
+    else if event-list_.contains event-name and catch-all_:
+      catch-all_.call json-map
+    else:
+      logger_.error "unhandled event" --tags=json-map
+
+
   /**
   Sends a simple message with the system time to the topic for testing purposes.
   */
@@ -367,7 +372,7 @@ class Sleep-as-android:
       event-lambdas_[event] = lambda
     else:
       logger_.debug "event lambda removed" --tags={"event": event}
-      event-lambdas_[event] = null
+      event-lambdas_.remove event
 
   /**
   Assigns this lambda to all Sleep-As-Android events, if they have not got

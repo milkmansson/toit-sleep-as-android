@@ -89,11 +89,13 @@ Who remembers [this game](https://en.wikipedia.org/wiki/The_Incredible_Machine)?
 The main concept is that the user is required to write some toit code to do
 something, such as turn an LED on using a GPIO, in its simplest example.
 Registering that code in this library, to one of the event types from Sleep As
-Android, will trigger that code when the event is raised.
+Android, will trigger that code when the event is raised.  (This is cometimes
+referred to as a 'callback'.)
 
 
 
-
+### Possible events
+Urbandroid list their events on their [website](https://sleep.urbandroid.org/docs/services/automation.html#events).
 
 
 

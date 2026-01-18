@@ -356,7 +356,7 @@ class Sleep-as-android:
 
   Used as a default client id in this class.
   */
-  mac-address-string separator/int=':' -> string:
+  static mac-address-string separator/int=':' -> string:
     out-list/List := []
     esp32.mac-address.do: | byte |
       out-list.add "$(%02x byte)"

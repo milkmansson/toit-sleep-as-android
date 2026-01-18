@@ -11,7 +11,7 @@ When the lambda is called, it is passed the event data as a map.  In order
 
 main:
   sleep-as-android := Sleep-as-android
-      --mqtt-host="3d42df32e786404fb37dd849277b56db.s1.eu.hivemq.cloud"
+      --mqtt-host="testserver.hivemq.cloud"
       --mqtt-password="TestingUsersUnite1"
       --mqtt-username="testing"
       --mqtt-topic="clock/alarms"

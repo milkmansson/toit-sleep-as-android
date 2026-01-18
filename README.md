@@ -26,11 +26,13 @@ incredible amount of flexibility and power:
 ## Some Ideas
 
 ### Smart Sunrise
-Instead of a fixed sunrise lamp, using Sleep-As-Androids's smart-wake behavior
-to control a lamp that is synced to the users' actual wake phase. For example:
-- During wake window, gradually brighten room
-- If the alarm triggers earlier use a fast ramp-up to help the transition
-- Rules such as increasing brightness regardless of snoozing the alarm
+Instead of a fixed sunrise lamp, Sleep-As-Androids's smart-wake behavior
+can be used to control a lamp that is synced to the users' actual wake phase.
+For example:
+- During wake window, gradually brighten room.
+- If the alarm triggers earlier use a fast ramp-up to help the transition.
+- Rules such as increasing brightness regardless of snoozing the alarm.
+
 Toit can run a smooth PWM fade curve easily and do proper timing without
 blocking other tasks.  (This was the original purpose of this code.)
 

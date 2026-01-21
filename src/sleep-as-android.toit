@@ -327,14 +327,15 @@ class Sleep-as-android:
       if exception:
         logger_.error "invalid json message" --tags={"topic":topic, "exception":exception}
       else:
-        logger_.debug "received valid json" --tags={"topic":topic, "content":decoded}
-
-      handle-event_ decoded
+        //logger_.debug "received valid json" --tags={"topic":topic, "content":decoded}
+        handle-event_ decoded
 
   handle-event_ json-map/Map -> none:
     event-name := ""
     if json-map.contains "event":
       event-name = json-map["event"]
+    if json-map.contains "value1":
+          json-map["time"] = Time.parse json-map["value1"]
 
     if event-lambdas_.contains event-name:
       event-lambdas_[event-name].call json-map
@@ -343,24 +344,26 @@ class Sleep-as-android:
     else:
       logger_.error "unhandled event" --tags=json-map
 
-
   /**
   Sends a simple message with the system time to the topic for testing purposes.
   */
-  publish topic/string=topic_  -> none:
+  publish-test topic/string=topic_  -> none:
     payload := json.encode {"now": Time.now.utc.to-iso8601-string}
     client_.publish topic payload
 
   /**
   Produces the ESP32 mac-address in hex representation as a string.
 
-  Used as a default client id in this class.
+  Used as a default client id in this class.  If a separator is not supplied,
+    separate the address using colons in the normal way (eg XX:XX:XX:XX:XX:XX).
+    supply "" (empty string) to get the mac address without separators.
   */
-  static mac-address-string separator/int=':' -> string:
+  static mac-address-string separator/string?=null -> string:
     out-list/List := []
     esp32.mac-address.do: | byte |
       out-list.add "$(%02x byte)"
-    return out-list.join (string.from-rune separator)
+    char := (separator == null) ? ":" : separator
+    return out-list.join char
 
   /**
   Assigns a lambda to a Sleep-As-Android event.
@@ -380,8 +383,8 @@ class Sleep-as-android:
   */
   assign-catch-all lambda/Lambda? -> none:
     if lambda:
-      logger_.debug "catchall lambda assigned"
+      logger_.debug "event lambda assigned (catchall)"
       catch-all_ = lambda
     else:
-      logger_.debug "catchall lambda removed"
+      logger_.debug "event lambda removed (catchall)"
       catch-all_ = null

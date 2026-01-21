@@ -95,11 +95,73 @@ referred to as a 'callback'.)
 
 
 ### Possible events
-Urbandroid list their events on their [website](https://sleep.urbandroid.org/docs/services/automation.html#events).
+Urbandroid list their events on their
+[website](https://sleep.urbandroid.org/docs/services/automation.html#events). In
+this driver, the names are exposed as constants, and can be used when setting
+triggers.
+#### Event List
+These are mostly self explanatory.  For more details see Urbandroid's [Event List](https://sleep.urbandroid.org/docs/services/automation.html#events).
+```Toit
+    SLEEP-TRACKING-STARTED
+    SLEEP-TRACKING-STOPPED
+    SLEEP-TRACKING-PAUSED
+    SLEEP-TRACKING_RESUMED
+    ALARM-SNOOZE-CLICKED
+    ALARM-SNOOZE-CANCELLED
+    TIME-TO-BED-ALARM-ALERT
+    ALARM-ALERT-START
+    ALARM-RESCHEDULED
+    ALARM-ALERT-DISMISS
+    ALARM-SKIP-NEXT
+    BEFORE-ALARM
+    REM
+    SMART-PERIOD
+    BEFORE-SMART-PERIOD
+    LULLABY-START
+    LULLABY-STOP
+    LULLABY-VOLUME-DOWN
+    DEEP-SLEEP
+    LIGHT-SLEEP
+    AWAKE
+    NOT-AWAKE
+    APNEA-ALARM
+    ANTISNORING
+    SOUND-EVENT-SNORE
+    SOUND-EVENT-TALK
+    SOUND-EVENT-COUGHING
+    SOUND-EVENT-BABY
+    SOUND-EVENT-LAUGH
+    ALARM-WAKE-UP-CHECK,
+    ALARM-RESCHEDULED-2
+    JET-LAG-START
+    JET-LAG-STOP
+```
+Some of these provide other data alongside the event name, as 'value1' and
+'value2' in the map.  This information is available to lambas in the following
+way:
+```Toit
+import sleep-as-android show *
+
+main:
+  username := "username"
+  password := "password"
+
+  sleep-as-android := Sleep-as-android
+      --mqtt-host="host.mqtt.example"
+      --mqtt-username=username
+      --mqtt-password=password
+      --mqtt-topic="clock/alarms"
+
+  sleep-as-android.assign-event
+      --event=Sleep-as-android.ALARM-ALERT-START
+      :: | event-data/Map |
+        print "  ALARM! $event-data"
+```
+When the alarm triggers, will display, as an example:
+```
 
 
-
-
+```
 
 ## Issues
 If there are any issues, changes, or any other kind of feedback, please

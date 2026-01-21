@@ -1,6 +1,10 @@
 ## For more: https://github.com/github/gitignore
 
-## Toit 
+
+## Specific example to avoid saving test secrets
+alarm-private.toit
+
+## Toit
 .packages/
 .jaguar
 
@@ -12,7 +16,7 @@
 .classpath
 .settings/
 
-## OS Junk 
+## OS Junk
 # macOS
 .DS_Store
 .AppleDouble
@@ -29,4 +33,3 @@ $RECYCLE.BIN/
 ## Environment & Secrets
 .env
 .env.*
-

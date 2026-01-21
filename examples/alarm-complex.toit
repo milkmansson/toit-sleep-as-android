@@ -12,8 +12,8 @@ When the lambda is called, it is passed the event data as a map.  In order
 main:
   sleep-as-android := Sleep-as-android
       --mqtt-host="testserver.hivemq.cloud"
+      --mqtt-username=Sleep-as-android.mac-address-string
       --mqtt-password="TestingUsersUnite1"
-      --mqtt-username="testing"
       --mqtt-topic="clock/alarms"
 
   sleep-as-android.assign-catch-all :: | event-data/Map |

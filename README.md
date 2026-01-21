@@ -53,9 +53,12 @@ Detector!)
 ### Morning Coffee
 Coffee machine triggered by an alarm, but intelligently:
 - Toit on the ESP32 listens for `alarm_dismissed` event.
-- Starts a smart plug (or controls a relay in the coffee machine itself - may require expertise).
-- Applies rules such as staying out of bed for > X minutes (eg no 'back to sleep' event).
-- Combined with a human presence sensor, it could avoid starting the coffee machine if the user is not present.
+- Starts a smart plug (or controls a relay in the coffee machine itself - may
+  require expertise).
+- Applies rules such as staying out of bed for > X minutes (eg no 'back to
+  sleep' event).
+- Combined with a human presence sensor, it could avoid starting the coffee
+  machine if the user is not present.
 
 ### Gamifying Waking Up
 Sleep as Android publishes events like: `alarm_fired`, `snooze`, `dismissed`,
@@ -78,9 +81,9 @@ The fun would start by coding some escalation logic:
 Use events such as REM detection to start lights or subtle cues that may
 influence dreams.
 - `REM` event is triggered on the ESP32/Toit by MQTT.
-- This could puls LEDs softly.
-- Control an ultrasonic transducer.
-- Operatte vibration motors.
+- Toit code on the ESP32 could pulse LEDs softly.
+- Or, control an ultrasonic transducer.
+- Or, operatte vibration motors, etc.
 
 ### The Incredible Machine
 Who remembers [this game](https://en.wikipedia.org/wiki/The_Incredible_Machine)?  The possibilities are almost as endless. :)
@@ -89,17 +92,85 @@ Who remembers [this game](https://en.wikipedia.org/wiki/The_Incredible_Machine)?
 The main concept is that the user is required to write some toit code to do
 something, such as turn an LED on using a GPIO, in its simplest example.
 Registering that code in this library, to one of the event types from Sleep As
-Android, will trigger that code when the event is raised.  (This is cometimes
+Android, will trigger that code when the event is raised.  (This is sometimes
 referred to as a 'callback'.)
 
-
-
 ### Possible events
-Urbandroid list their events on their [website](https://sleep.urbandroid.org/docs/services/automation.html#events).
+Urbandroid list their events on their
+[website](https://sleep.urbandroid.org/docs/services/automation.html#events). In
+this driver, the names are exposed as constants, and can be used when setting
+triggers.
+#### Event List
+These are mostly self explanatory.  For more details see Urbandroid's [Event List](https://sleep.urbandroid.org/docs/services/automation.html#events).
+```Toit
+    SLEEP-TRACKING-STARTED
+    SLEEP-TRACKING-STOPPED
+    SLEEP-TRACKING-PAUSED
+    SLEEP-TRACKING_RESUMED
+    ALARM-SNOOZE-CLICKED
+    ALARM-SNOOZE-CANCELLED
+    TIME-TO-BED-ALARM-ALERT
+    ALARM-ALERT-START
+    ALARM-RESCHEDULED
+    ALARM-ALERT-DISMISS
+    ALARM-SKIP-NEXT
+    BEFORE-ALARM
+    REM
+    SMART-PERIOD
+    BEFORE-SMART-PERIOD
+    LULLABY-START
+    LULLABY-STOP
+    LULLABY-VOLUME-DOWN
+    DEEP-SLEEP
+    LIGHT-SLEEP
+    AWAKE
+    NOT-AWAKE
+    APNEA-ALARM
+    ANTISNORING
+    SOUND-EVENT-SNORE
+    SOUND-EVENT-TALK
+    SOUND-EVENT-COUGHING
+    SOUND-EVENT-BABY
+    SOUND-EVENT-LAUGH
+    ALARM-WAKE-UP-CHECK,
+    ALARM-RESCHEDULED-2
+    JET-LAG-START
+    JET-LAG-STOP
+```
+Some of these provide other data alongside the event name, as 'value1' and
+'value2' in the map.  This information is available to lambdas in the following
+way:
+```Toit
+import sleep-as-android show *
 
+main:
+  username := "username"
+  password := "password"
 
+  sleep-as-android := Sleep-as-android
+      --mqtt-host="host.mqtt.example"
+      --mqtt-username=username
+      --mqtt-password=password
+      --mqtt-topic="clock/alarms"
 
-
+  sleep-as-android.assign-event
+      --event=Sleep-as-android.ALARM-ALERT-START
+      :: | event-data/Map |
+        print "  ALARM! $event-data"
+```
+When the alarm triggers, will display, as an example:
+```
+[sleep-as] INFO: starting mqtt client... {client-id: 9c:9e:6e:ff:fe:77, username: username}
+[sleep-as.mqtt] DEBUG: connected to broker
+[sleep-as.mqtt] DEBUG: connection established
+[sleep-as] DEBUG: lambda assigned: {event: alarm_alert_start}
+[sleep-as] DEBUG: received json from 'clock/alarms': {value1: 1768698540000, value2: Ring Paul, event: alarm_alert_start}
+  Alarm! {value1: 1768698540000, value2: Ring Paul, event: alarm_alert_start}
+```
+As explained in the Urbandroid documentation, `value1` in this case is a `UNIXTIME`
+of the alarm set time.  (This one refers to the alarm, and therefore stays the
+same even when snoozed.)  Output and dDebug levels can be changed, see Toit's
+[`logger` class](https://libs.toit.io/log/class-Logger).
 
 ## Issues
 If there are any issues, changes, or any other kind of feedback, please

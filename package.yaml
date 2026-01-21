@@ -1,0 +1,11 @@
+name: sleep-as-android
+description: Wrapper for receiving Sleep-As-Android MQTT events.
+environment:
+  sdk: ^2.0.0-alpha.188
+dependencies:
+  certificate-roots:
+    url: github.com/toitware/toit-cert-roots
+    version: ^1.11.0
+  mqtt:
+    url: github.com/toitware/mqtt
+    version: ^2.13.1

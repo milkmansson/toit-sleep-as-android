@@ -123,7 +123,6 @@ These are mostly self explanatory.  For more details see Urbandroid's [Event Lis
 | `REM` | Fires when the app estimates the start of the REM phase of sleep. |
 | `SMART-PERIOD` | Fires at the start of the smart period. |
 | `BEFORE-SMART-PERIOD` | Fires 45 minutes before the start of smart period. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li></ul>
-
 | `LULLABY-START` | Fires when lullaby starts playing. |
 | `LULLABY-STOP` | Fires when lullaby is stopped (either manually or automatically). |
 | `LULLABY-VOLUME-DOWN` | Fires when the app detects that the user fell asleep, and is starting lowering the volume of lullaby. |

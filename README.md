@@ -105,41 +105,43 @@ this driver, the names are exposed as constants, and can be used when setting
 triggers.
 #### Event List
 These are mostly self explanatory.  For more details see Urbandroid's [Event List](https://sleep.urbandroid.org/docs/services/automation.html#events).
-```Toit
-    SLEEP-TRACKING-STARTED
-    SLEEP-TRACKING-STOPPED
-    SLEEP-TRACKING-PAUSED
-    SLEEP-TRACKING_RESUMED
-    ALARM-SNOOZE-CLICKED
-    ALARM-SNOOZE-CANCELLED
-    TIME-TO-BED-ALARM-ALERT
-    ALARM-ALERT-START
-    ALARM-RESCHEDULED
-    ALARM-ALERT-DISMISS
-    ALARM-SKIP-NEXT
-    BEFORE-ALARM
-    REM
-    SMART-PERIOD
-    BEFORE-SMART-PERIOD
-    LULLABY-START
-    LULLABY-STOP
-    LULLABY-VOLUME-DOWN
-    DEEP-SLEEP
-    LIGHT-SLEEP
-    AWAKE
-    NOT-AWAKE
-    APNEA-ALARM
-    ANTISNORING
-    SOUND-EVENT-SNORE
-    SOUND-EVENT-TALK
-    SOUND-EVENT-COUGHING
-    SOUND-EVENT-BABY
-    SOUND-EVENT-LAUGH
-    ALARM-WAKE-UP-CHECK,
-    ALARM-RESCHEDULED-2
-    JET-LAG-START
-    JET-LAG-STOP
-```
+
+| Constant/Event Name | Explanation |
+| - | - |
+| `SLEEP-TRACKING-STARTED` | Fires when sleep tracking has started. |
+| `SLEEP-TRACKING-STOPPED` | Fires when sleep tracking has stopped. |
+| `SLEEP-TRACKING-PAUSED` | Fires when sleep tracking is paused. |
+| `SLEEP-TRACKING_RESUMED` | Fires when sleep tracking has been resumed. |
+| `ALARM-SNOOZE-CLICKED` |   Fires when a ringing alarm was snoozed. <br> **value1:** UNIX timestamp of the alarm start time, example: "1582719660934"; <br> **value2:** alarm label, example: "label" (Any tabs and newline characters in the label will be removed before sending). |
+| `ALARM-SNOOZE-CANCELLED` |  Fires when a snoozed alarm alarm is cancelled. <br>  **value1:** UNIX timestamp of the alarm start time. <br> **value2:** Alarm label. |
+| `TIME-TO-BED-ALARM-ALERT` |   Fires when the app gives a 'bedtime' notification. <br> **value1:** UNIX timestamp of the _alarm start time_ triggering the sleep notification, not the time of the 'time to go to bed' alert. |
+| `ALARM-ALERT-START` |
+| `ALARM-RESCHEDULED` |
+| `ALARM-ALERT-DISMISS` |
+| `ALARM-SKIP-NEXT` |
+| `BEFORE-ALARM` |
+| `REM` |
+| `SMART-PERIOD` |
+| `BEFORE-SMART-PERIOD` |
+| `LULLABY-START` |
+| `LULLABY-STOP` |
+| `LULLABY-VOLUME-DOWN` |
+| `DEEP-SLEEP` |
+| `LIGHT-SLEEP` |
+| `AWAKE` |
+| `NOT-AWAKE` |
+| `APNEA-ALARM` |
+| `ANTISNORING` |
+| `SOUND-EVENT-SNORE` |
+| `SOUND-EVENT-TALK` |
+| `SOUND-EVENT-COUGHING` |
+| `SOUND-EVENT-BABY` |
+| `SOUND-EVENT-LAUGH` |
+| `ALARM-WAKE-UP-CHECK` |
+| `ALARM-RESCHEDULED-2` |
+| `JET-LAG-START` |
+| `JET-LAG-STOP` |
+
 Some of these provide other data alongside the event name, as 'value1' and
 'value2' in the map.  This information is available to lambdas in the following
 way:

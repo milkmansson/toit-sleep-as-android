@@ -16,12 +16,15 @@ incredible amount of flexibility and power:
 - PWM/digital control of things like fans, lights, actuators, relays, motors.
 - Precise timers for things like alarm windows and fade-up sequences
 - Sensor reads (light/CO₂/temp, etc) can be made through the night, or attached
-  to specific events
+  to specific events.
+- Specific capabilities of Sleep-as-Android can be used, for example:
+  - play a noise when `SOUND-EVENT-SNORE` is activated.
+  - record when `SOUND-EVENT-TALK` is activated.
+  - lights or sound could be attached to the `LULLABY-*` events.
 - The MCU run autonomously without the phone once state is known.
 - Custom logic can be created, especially when integrating with other sensors.
 - Using other capabilities (such as pulling weather information from the
   internet), heating and other environmental things can be controlled.
-
 
 ## Some Ideas
 

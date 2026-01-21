@@ -53,9 +53,12 @@ Detector!)
 ### Morning Coffee
 Coffee machine triggered by an alarm, but intelligently:
 - Toit on the ESP32 listens for `alarm_dismissed` event.
-- Starts a smart plug (or controls a relay in the coffee machine itself - may require expertise).
-- Applies rules such as staying out of bed for > X minutes (eg no 'back to sleep' event).
-- Combined with a human presence sensor, it could avoid starting the coffee machine if the user is not present.
+- Starts a smart plug (or controls a relay in the coffee machine itself - may
+  require expertise).
+- Applies rules such as staying out of bed for > X minutes (eg no 'back to
+  sleep' event).
+- Combined with a human presence sensor, it could avoid starting the coffee
+  machine if the user is not present.
 
 ### Gamifying Waking Up
 Sleep as Android publishes events like: `alarm_fired`, `snooze`, `dismissed`,
@@ -78,9 +81,9 @@ The fun would start by coding some escalation logic:
 Use events such as REM detection to start lights or subtle cues that may
 influence dreams.
 - `REM` event is triggered on the ESP32/Toit by MQTT.
-- This could puls LEDs softly.
-- Control an ultrasonic transducer.
-- Operatte vibration motors.
+- Toit code on the ESP32 could pulse LEDs softly.
+- Or, control an ultrasonic transducer.
+- Or, operatte vibration motors, etc.
 
 ### The Incredible Machine
 Who remembers [this game](https://en.wikipedia.org/wiki/The_Incredible_Machine)?  The possibilities are almost as endless. :)
@@ -89,10 +92,8 @@ Who remembers [this game](https://en.wikipedia.org/wiki/The_Incredible_Machine)?
 The main concept is that the user is required to write some toit code to do
 something, such as turn an LED on using a GPIO, in its simplest example.
 Registering that code in this library, to one of the event types from Sleep As
-Android, will trigger that code when the event is raised.  (This is cometimes
+Android, will trigger that code when the event is raised.  (This is sometimes
 referred to as a 'callback'.)
-
-
 
 ### Possible events
 Urbandroid list their events on their
@@ -137,7 +138,7 @@ These are mostly self explanatory.  For more details see Urbandroid's [Event Lis
     JET-LAG-STOP
 ```
 Some of these provide other data alongside the event name, as 'value1' and
-'value2' in the map.  This information is available to lambas in the following
+'value2' in the map.  This information is available to lambdas in the following
 way:
 ```Toit
 import sleep-as-android show *

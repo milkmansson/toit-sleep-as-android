@@ -108,39 +108,38 @@ These are mostly self explanatory.  For more details see Urbandroid's [Event Lis
 
 | Constant/Event Name | Explanation |
 | - | - |
-| `SLEEP-TRACKING-STARTED` | Fires when sleep tracking has started. |
-| `SLEEP-TRACKING-STOPPED` | Fires when sleep tracking has stopped. |
-| `SLEEP-TRACKING-PAUSED` | Fires when sleep tracking is paused. |
-| `SLEEP-TRACKING_RESUMED` | Fires when sleep tracking has been resumed. |
-| `ALARM-SNOOZE-CLICKED` |   Fires when a ringing alarm was snoozed. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time, example: "1582719660934"</li> <li>**value2:** alarm label as the user has specified it in the app, example: "label". (Any tabs and newline characters in the label are removed.) |
-| `ALARM-SNOOZE-CANCELLED` | Fires when a snoozed alarm alarm is cancelled. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
-| `TIME-TO-BED-ALARM-ALERT` | Fires when the app gives a 'bedtime' notification. <br> <ul><li>**value1:** UNIX timestamp of the _alarm start time_ triggering the sleep notification, not the time of the 'time to go to bed' alert. </li></ul> |
-| `ALARM-ALERT-START` | Fires when an alarm starts. <br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
-| `ALARM-RESCHEDULED` | Fires when the app is saving a new alarm time, different from the previous alarm time (it allows an external automation system to track the latest set alarm time on Sleep as Android). <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
-| `ALARM-ALERT-DISMISS` | Fires when the alarm is dismissed.  (After the CAPTCHA is solved, if one is set).<br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label. |
-| `ALARM-SKIP-NEXT` | Fires when an alarm is dismissed from notification before it actually rings. <br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label. |
-| `BEFORE-ALARM` | Fires exactly 1 hour before the next alarm is triggered.<br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li></ul>
-| `REM` | Fires when the app estimates the start of the REM phase of sleep. |
-| `SMART-PERIOD` | Fires at the start of the smart period. |
-| `BEFORE-SMART-PERIOD` | Fires 45 minutes before the start of smart period. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li></ul>
-| `LULLABY-START` | Fires when lullaby starts playing. |
-| `LULLABY-STOP` | Fires when lullaby is stopped (either manually or automatically). |
-| `LULLABY-VOLUME-DOWN` | Fires when the app detects that the user fell asleep, and is starting lowering the volume of lullaby. |
-| `DEEP-SLEEP` | Fires when the app detects the user is going into a deep sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
-| `LIGHT-SLEEP` | Fires when the app detects the user going into a light sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
-| `AWAKE` | Fires when a wake up is detected. |
-| `NOT-AWAKE` | Fires when the app detectes that the user fell asleep. |
-| `APNEA-ALARM` | Fires when the app detects a significant dip in oxygen levels. |
-| `ANTISNORING` | Fires when the app's antisnoring feature is triggered. |
-| `SOUND-EVENT-SNORE` | Fires when the app detects snoring. |
-| `SOUND-EVENT-TALK` | Fires when the app detects talking. |
-| `SOUND-EVENT-COUGHING` | Fires when the app detects coughing. |
-| `SOUND-EVENT-BABY` | Fires when the app detects the sound of a baby crying. |
-| `SOUND-EVENT-LAUGH` | Fires when the app detects laughter. |
-| `ALARM-WAKE-UP-CHECK` | Fires when the wake-up check notification is triggered. |
-| `ALARM-RESCHEDULED-2` |
-| `JET-LAG-START` | Fires when the JetLag prevention feature starts. |
-| `JET-LAG-STOP` | Fires when the JetLag prevention feature is finished. |
+| `.SLEEP-TRACKING-STARTED` | Fires when sleep tracking has started. |
+| `.SLEEP-TRACKING-STOPPED` | Fires when sleep tracking has stopped. |
+| `.SLEEP-TRACKING-PAUSED` | Fires when sleep tracking is paused. |
+| `.SLEEP-TRACKING_RESUMED` | Fires when sleep tracking has been resumed. |
+| `.ALARM-SNOOZE-CLICKED` |   Fires when a ringing alarm was snoozed. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time, example: "1582719660934"</li> <li>**value2:** alarm label as the user has specified it in the app, example: "label". (Any tabs and newline characters in the label are removed.) |
+| `.ALARM-SNOOZE-CANCELLED` | Fires when a snoozed alarm alarm is cancelled. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
+| `.TIME-TO-BED-ALARM-ALERT` | Fires when the app gives a 'bedtime' notification. <br> <ul><li>**value1:** UNIX timestamp of the _alarm start time_ triggering the sleep notification, not the time of the 'time to go to bed' alert. </li></ul> |
+| `.ALARM-ALERT-START` | Fires when an alarm starts. <br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
+| `.ALARM-RESCHEDULED` | Fires when the app is saving a new alarm time, different from the previous alarm time (it allows an external automation system to track the latest set alarm time on Sleep as Android). <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
+| `.ALARM-ALERT-DISMISS` | Fires when the alarm is dismissed.  (After the CAPTCHA is solved, if one is set).<br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label. |
+| `.ALARM-SKIP-NEXT` | Fires when an alarm is dismissed from notification before it actually rings. <br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label. |
+| `.BEFORE-ALARM` | Fires exactly 1 hour before the next alarm is triggered.<br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li></ul>
+| `.REM` | Fires when the app estimates the start of the REM phase of sleep. |
+| `.SMART-PERIOD` | Fires at the start of the smart period. |
+| `.BEFORE-SMART-PERIOD` | Fires 45 minutes before the start of smart period. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li></ul>
+| `.LULLABY-START` | Fires when lullaby starts playing. |
+| `.LULLABY-STOP` | Fires when lullaby is stopped (either manually or automatically). |
+| `.LULLABY-VOLUME-DOWN` | Fires when the app detects that the user fell asleep, and is starting lowering the volume of lullaby. |
+| `.DEEP-SLEEP` | Fires when the app detects the user is going into a deep sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
+| `.LIGHT-SLEEP` | Fires when the app detects the user going into a light sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
+| `.AWAKE` | Fires when a wake up is detected. |
+| `.NOT-AWAKE` | Fires when the app detectes that the user fell asleep. |
+| `.APNEA-ALARM` | Fires when the app detects a significant dip in oxygen levels. |
+| `.ANTISNORING` | Fires when the app's antisnoring feature is triggered. |
+| `.SOUND-EVENT-SNORE` | Fires when the app detects snoring. |
+| `.SOUND-EVENT-TALK` | Fires when the app detects talking. |
+| `.SOUND-EVENT-COUGHING` | Fires when the app detects coughing. |
+| `.SOUND-EVENT-BABY` | Fires when the app detects the sound of a baby crying. |
+| `.SOUND-EVENT-LAUGH` | Fires when the app detects laughter. |
+| `.ALARM-WAKE-UP-CHECK` | Fires when the wake-up check notification is triggered. |
+| `.JET-LAG-START` | Fires when the JetLag prevention feature starts. |
+| `.JET-LAG-STOP` | Fires when the JetLag prevention feature is finished. |
 
 Some of these provide other data alongside the event name, as 'value1' and
 'value2' in the map.  This information is available to lambdas in the following

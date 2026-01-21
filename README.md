@@ -114,20 +114,20 @@ These are mostly self explanatory.  For more details see Urbandroid's [Event Lis
 | `SLEEP-TRACKING_RESUMED` | Fires when sleep tracking has been resumed. |
 | `ALARM-SNOOZE-CLICKED` |   Fires when a ringing alarm was snoozed. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time, example: "1582719660934"</li> <li>**value2:** alarm label as the user has specified it in the app, example: "label". (Any tabs and newline characters in the label are removed.) |
 | `ALARM-SNOOZE-CANCELLED` | Fires when a snoozed alarm alarm is cancelled. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
-| `TIME-TO-BED-ALARM-ALERT` | Fires when the app gives a 'bedtime' notification. <br> **value1:** UNIX timestamp of the _alarm start time_ triggering the sleep notification, not the time of the 'time to go to bed' alert. |
-| `ALARM-ALERT-START` | Fires when an alarm starts. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
+| `TIME-TO-BED-ALARM-ALERT` | Fires when the app gives a 'bedtime' notification. <br> <ul><li>**value1:** UNIX timestamp of the _alarm start time_ triggering the sleep notification, not the time of the 'time to go to bed' alert. </li></ul> |
+| `ALARM-ALERT-START` | Fires when an alarm starts. <br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
 | `ALARM-RESCHEDULED` | Fires when the app is saving a new alarm time, different from the previous alarm time (it allows an external automation system to track the latest set alarm time on Sleep as Android). <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul> |
 | `ALARM-ALERT-DISMISS` | Fires when the alarm is dismissed.  (After the CAPTCHA is solved, if one is set).<br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label. |
+| `ALARM-SKIP-NEXT` | Fires when an alarm is dismissed from notification before it actually rings. <br><ul><li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label. |
+| `BEFORE-ALARM` | Fires exactly 1 hour before the next alarm is triggered.<br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li></ul>
+| `REM` | Fires when the app estimates the start of the REM phase of sleep. |
+| `SMART-PERIOD` | Fires at the start of the smart period. |
+| `BEFORE-SMART-PERIOD` | Fires 45 minutes before the start of smart period. <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li></ul>
 
-| `ALARM-SKIP-NEXT` |
-| `BEFORE-ALARM` |
-| `REM` |
-| `SMART-PERIOD` |
-| `BEFORE-SMART-PERIOD` |
-| `LULLABY-START` |
-| `LULLABY-STOP` |
-| `LULLABY-VOLUME-DOWN` |
-| `DEEP-SLEEP` |
+| `LULLABY-START` | Fires when lullaby starts playing. |
+| `LULLABY-STOP` | Fires when lullaby is stopped (either manually or automatically). |
+| `LULLABY-VOLUME-DOWN` | Fires when the app detects that the user fell asleep, and is starting lowering the volume of lullaby. |
+| `DEEP-SLEEP` | Fires when the app detects the user is going into a deep sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
 | `LIGHT-SLEEP` |
 | `AWAKE` |
 | `NOT-AWAKE` |

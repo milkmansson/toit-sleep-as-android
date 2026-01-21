@@ -128,7 +128,7 @@ These are mostly self explanatory.  For more details see Urbandroid's [Event Lis
 | `LULLABY-STOP` | Fires when lullaby is stopped (either manually or automatically). |
 | `LULLABY-VOLUME-DOWN` | Fires when the app detects that the user fell asleep, and is starting lowering the volume of lullaby. |
 | `DEEP-SLEEP` | Fires when the app detects the user is going into a deep sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
-| `LIGHT-SLEEP` |
+| `LIGHT-SLEEP` | Fires when the app detects the user going into a light sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
 | `AWAKE` |
 | `NOT-AWAKE` |
 | `APNEA-ALARM` |

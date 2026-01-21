@@ -367,6 +367,8 @@ class Sleep-as-android:
 
   /**
   Assigns a lambda to a Sleep-As-Android event.
+
+  Assigning `null` to the event clears it.
   */
   assign-event --event/string lambda/Lambda? -> none:
     assert: event-list_.contains event
@@ -378,8 +380,13 @@ class Sleep-as-android:
       event-lambdas_.remove event
 
   /**
-  Assigns this lambda to all Sleep-As-Android events, if they have not got
-    a lambda assigned of their own.  (For troubleshooting.  Use with care.)
+  Assigns a Catch-all lambda.
+
+  Assigns the supplied $lambda to all Sleep-As-Android events, if they have not
+    got a specific lambda assigned of their own.  (For troubleshooting.  Use
+    with care.)
+
+  Assigning `null` clears the catch-all lambda.
   */
   assign-catch-all lambda/Lambda? -> none:
     if lambda:

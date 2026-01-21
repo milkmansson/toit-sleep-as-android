@@ -112,11 +112,11 @@ These are mostly self explanatory.  For more details see Urbandroid's [Event Lis
 | `SLEEP-TRACKING-STOPPED` | Fires when sleep tracking has stopped. |
 | `SLEEP-TRACKING-PAUSED` | Fires when sleep tracking is paused. |
 | `SLEEP-TRACKING_RESUMED` | Fires when sleep tracking has been resumed. |
-| `ALARM-SNOOZE-CLICKED` |   Fires when a ringing alarm was snoozed. <br> **value1:** UNIX timestamp of the alarm start time, example: "1582719660934"; <br> **value2:** alarm label, example: "label" (Any tabs and newline characters in the label will be removed before sending). |
-| `ALARM-SNOOZE-CANCELLED` |  Fires when a snoozed alarm alarm is cancelled. <br>  **value1:** UNIX timestamp of the alarm start time. <br> **value2:** Alarm label. |
-| `TIME-TO-BED-ALARM-ALERT` |   Fires when the app gives a 'bedtime' notification. <br> **value1:** UNIX timestamp of the _alarm start time_ triggering the sleep notification, not the time of the 'time to go to bed' alert. |
-| `ALARM-ALERT-START` |
-| `ALARM-RESCHEDULED` |
+| `ALARM-SNOOZE-CLICKED` |   Fires when a ringing alarm was snoozed. <br> **value1:** UNIX timestamp of the alarm start time, example: "1582719660934"; <br> **value2:** alarm label as the user has specified it in the app, example: "label" (Any tabs and newline characters in the label will be removed before sending). |
+| `ALARM-SNOOZE-CANCELLED` | Fires when a snoozed alarm alarm is cancelled. <br>  **value1:** UNIX timestamp of the alarm start time. <br> **value2:** Alarm label. |
+| `TIME-TO-BED-ALARM-ALERT` | Fires when the app gives a 'bedtime' notification. <br> **value1:** UNIX timestamp of the _alarm start time_ triggering the sleep notification, not the time of the 'time to go to bed' alert. |
+| `ALARM-ALERT-START` | Fires when an alarm starts. <br> **value1:** UNIX timestamp of the alarm start time. <br> **value2:** alarm label.
+| `ALARM-RESCHEDULED` | Fires when the app is saving a new alarm time, different from the previous alarm time (it allows an external automation system to track the latest set alarm time on Sleep as Android). <br><ul> <li>**value1:** UNIX timestamp of the alarm start time.</li><li>**value2:** alarm label.</li></ul>
 | `ALARM-ALERT-DISMISS` |
 | `ALARM-SKIP-NEXT` |
 | `BEFORE-ALARM` |

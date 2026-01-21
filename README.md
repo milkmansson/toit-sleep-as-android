@@ -129,19 +129,19 @@ These are mostly self explanatory.  For more details see Urbandroid's [Event Lis
 | `LULLABY-VOLUME-DOWN` | Fires when the app detects that the user fell asleep, and is starting lowering the volume of lullaby. |
 | `DEEP-SLEEP` | Fires when the app detects the user is going into a deep sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
 | `LIGHT-SLEEP` | Fires when the app detects the user going into a light sleep phase. <br>**Warning:** This may result in lots of events during the night and may not exactly fit the resulting sleep graph as the app can only detect phases reliably from whole-night data. |
-| `AWAKE` |
-| `NOT-AWAKE` |
-| `APNEA-ALARM` |
-| `ANTISNORING` |
-| `SOUND-EVENT-SNORE` |
-| `SOUND-EVENT-TALK` |
-| `SOUND-EVENT-COUGHING` |
-| `SOUND-EVENT-BABY` |
-| `SOUND-EVENT-LAUGH` |
-| `ALARM-WAKE-UP-CHECK` |
+| `AWAKE` | Fires when a wake up is detected. |
+| `NOT-AWAKE` | Fires when the app detectes that the user fell asleep. |
+| `APNEA-ALARM` | Fires when the app detects a significant dip in oxygen levels. |
+| `ANTISNORING` | Fires when the app's antisnoring feature is triggered. |
+| `SOUND-EVENT-SNORE` | Fires when the app detects snoring. |
+| `SOUND-EVENT-TALK` | Fires when the app detects talking. |
+| `SOUND-EVENT-COUGHING` | Fires when the app detects coughing. |
+| `SOUND-EVENT-BABY` | Fires when the app detects the sound of a baby crying. |
+| `SOUND-EVENT-LAUGH` | Fires when the app detects laughter. |
+| `ALARM-WAKE-UP-CHECK` | Fires when the wake-up check notification is triggered. |
 | `ALARM-RESCHEDULED-2` |
-| `JET-LAG-START` |
-| `JET-LAG-STOP` |
+| `JET-LAG-START` | Fires when the JetLag prevention feature starts. |
+| `JET-LAG-STOP` | Fires when the JetLag prevention feature is finished. |
 
 Some of these provide other data alongside the event name, as 'value1' and
 'value2' in the map.  This information is available to lambdas in the following

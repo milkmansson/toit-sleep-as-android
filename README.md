@@ -11,8 +11,8 @@ could lead to much more.
 This library uses Toit's excellent [MQTT library](https://github.com/toitware/mqtt).
 
 ## Benefits
-Using the capabilities of Toit on a microcontroller like the ESP32 gives an
-incredible amount of flexibility and power:
+Combining the capabilities of this app with Toit on a microcontroller like the
+ESP32, presents significant flexibility and power:
 - PWM/digital control of things like fans, lights, actuators, relays, motors.
 - Precise timers for things like alarm windows and fade-up sequences
 - Sensor reads (light/CO₂/temp, etc) can be made through the night, or attached

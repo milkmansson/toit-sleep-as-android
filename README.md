@@ -97,12 +97,11 @@ Android, will trigger that code when the event is raised.  (This is sometimes
 referred to as a 'callback'.)
 
 ### Possible events
-Urbandroid list their events on their
-[website](https://sleep.urbandroid.org/docs/services/automation.html#events). In
-this driver, the names are exposed as constants, and can be used when setting
+Urbandroid list their events on [Event List](https://sleep.urbandroid.org/docs/services/automation.html#events).
+In this driver, the names are exposed as constants, and can be used when setting
 triggers.
-#### Event List
-These are mostly self explanatory.  For more details see Urbandroid's [Event List](https://sleep.urbandroid.org/docs/services/automation.html#events).
+#### Event List Reference
+These are mostly self explanatory:
 
 | Constant/Event Name | Explanation |
 | - | - |

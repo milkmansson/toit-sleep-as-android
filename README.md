@@ -167,10 +167,10 @@ When the alarm triggers, will display, as an example:
 [sleep-as] DEBUG: received json from 'clock/alarms': {value1: 1768698540000, value2: Ring Paul, event: alarm_alert_start}
   Alarm! {value1: 1768698540000, value2: Ring Paul, event: alarm_alert_start}
 ```
-As explained in the Urbandroid documentation, `value1` in this case is a `UNIXTIME`
-of the alarm set time.  (This one refers to the alarm, and therefore stays the
-same even when snoozed.)  Output and dDebug levels can be changed, see Toit's
-[`logger` class](https://libs.toit.io/log/class-Logger).
+As explained alongside the event descriptiona above, `value1` in this case is
+a `UNIXTIME` of the alarm set time.  (This one refers to the alarm, and
+therefore stays the same even when snoozed.)  Output and dDebug levels can be
+changed, see Toit's [logger capabilities](https://libs.toit.io/log/class-Logger).
 
 ## Issues
 If there are any issues, changes, or any other kind of feedback, please

@@ -165,7 +165,7 @@ When the alarm triggers, will display, as an example:
 [sleep-as.mqtt] DEBUG: connection established
 [sleep-as] DEBUG: lambda assigned: {event: alarm_alert_start}
 [sleep-as] DEBUG: received json from 'clock/alarms': {value1: 1768698540000, value2: Ring Paul, event: alarm_alert_start}
-  Alarm! {value1: 1768698540000, value2: Ring Paul, event: alarm_alert_start}
+  ALARM! {value1: 1768698540000, value2: Ring Paul, event: alarm_alert_start}
 ```
 As explained alongside the event descriptiona above, `value1` in this case is
 a `UNIXTIME` of the alarm set time.  (This one refers to the alarm, and

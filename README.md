@@ -169,7 +169,7 @@ When the alarm triggers, will display, as an example:
 ```
 As explained alongside the event descriptiona above, `value1` in this case is
 a `UNIXTIME` of the alarm set time.  (This one refers to the alarm, and
-therefore stays the same even when snoozed.)  Output and dDebug levels can be
+therefore stays the same even when snoozed.)  Output and debug levels can be
 changed, see Toit's [logger capabilities](https://libs.toit.io/log/class-Logger).
 
 ## Issues

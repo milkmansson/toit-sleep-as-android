@@ -101,7 +101,8 @@ Urbandroid list their events on [Event List](https://sleep.urbandroid.org/docs/s
 In this driver, the names are exposed as constants, and can be used when setting
 triggers.
 #### Event List Reference
-These are mostly self explanatory:
+These are mostly self explanatory.  Some provide extra data alongside the alert
+itself, in entries called 'value1' and 'value2':
 
 | Constant/Event Name | Explanation |
 | - | - |
@@ -138,9 +139,7 @@ These are mostly self explanatory:
 | `.JET-LAG-START` | Fires when the JetLag prevention feature starts. |
 | `.JET-LAG-STOP` | Fires when the JetLag prevention feature is finished. |
 
-Some of these provide other data alongside the event name, as 'value1' and
-'value2' in the map.  This information is available to lambdas in the following
-way:
+The additional data is available to lambdas in the following way. If we wish to trigger an alert for `ALARM-ALERT-START`, and print the additional data:
 ```Toit
 import sleep-as-android show *
 

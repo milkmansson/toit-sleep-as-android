@@ -39,19 +39,20 @@ For example:
 Toit can run a smooth PWM fade curve easily and do proper timing without
 blocking other tasks.  (This was the original purpose of this code.)
 
-### Assistance for disabled people
-Using whatever interventions are necessary to suit the user.  For example:
-- Controlling of lights.
-- Vibration, etc.
-
-... anything necessary to make an alarm functionally useful for a person.
+### Accessibility Assistance
+Create whatever interventions are necessary to suit an individuals neeeds:
+- Controlling of lights: Not just the room lamps, but LED strips or strobes etc.
+- Gentle mechanical motion including vibration, or a rocking pad, etc.
+- Combining with other sensors, detecting when the user is present or has left, alongside notifications to caregivers.
+- Using whatever physical responses the user can make, including proximity or
+gesture detection to dismiss alarms.
+... anything necessary that would make a functional combination.
 
 ### More detailed data logging
 Combining other real world items, such as printers, etc, data collected by the
 phone's sensors, and by sensors on Toit/ESP32, quite in-depth analyses could be
 made, with data logged online or on a local printing device (eg like a Lie
 Detector!)
-
 
 ### Morning Coffee
 Coffee machine triggered by an alarm, but intelligently:
@@ -87,9 +88,6 @@ influence dreams.
 - Toit code on the ESP32 could pulse LEDs softly.
 - Or, control an ultrasonic transducer.
 - Or, operatte vibration motors, etc.
-
-### The Incredible Machine
-Who remembers [this game](https://en.wikipedia.org/wiki/The_Incredible_Machine)?  The possibilities are almost as endless. :)
 
 ## How to Use
 The main concept is that the user is required to write some toit code to do

@@ -5,7 +5,7 @@ to events that can be raised by the excellent [Sleep As Android](https://sleep.u
 
 This library can be used in Toit projects to do such things as turn lights on,
 however, this really is just the tip of the iceberg.  With all of Toit's
-capabilities ad your projects' disposal, catching events from Sleep-As-Android
+capabilities at your projects' disposal, catching events from Sleep-As-Android
 could lead to much more.
 
 This library uses Toit's excellent [MQTT library](https://github.com/toitware/mqtt).

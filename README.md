@@ -5,7 +5,7 @@ to events that can be raised by the excellent [Sleep As Android](https://sleep.u
 
 This library can be used in Toit projects to do such things as turn lights on,
 however, this really is just the tip of the iceberg.  With all of Toit's
-capabilities ad your projects' disposal, catching events from Sleep-As-Android
+capabilities at your projects' disposal, catching events from Sleep-As-Android
 could lead to much more.
 
 This library uses Toit's excellent [MQTT library](https://github.com/toitware/mqtt).
@@ -100,10 +100,24 @@ the required code/logic to do something.  Registering that code using this
 library, to one of the event types from Sleep As Android, will trigger that
 code when the event is raised.  (This is sometimes referred to as a 'callback'.)
 
+### Prerequisites
+If you haven't used Toit before, there is a small set of prerequisites for a
+successful Toit project, and to obtain and use this library:
+- Setting up Toit on your system and flashing your ESP32 - use Toit's [Getting
+  Started Guide](https://docs.toit.io/getstarted)
+- Importing [packages](https://docs.toit.io/tutorials/setup/packages) (this
+  libaray itself is a 'package') and accessing them in your projects
+- Understanding [Lambdas](https://docs.toit.io/language/blocks-and-lambdas) in
+  Toit.
+- As a first example, make a
+  [buzzer](https://docs.toit.io/tutorials/hardware/pwm-buzzer) alert you.  (See
+  the other tutorials too - this is the tip of the iceberg!)
+
 ### Possible events
 Urbandroid list their events on [Event List](https://sleep.urbandroid.org/docs/services/automation.html#events).
 In this driver, the names are exposed as constants, and can be used when setting
 triggers.
+
 #### Event List Reference
 These are mostly self explanatory.  Some provide extra data alongside the alert
 itself, in entries called 'value1' and 'value2':

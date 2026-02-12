@@ -102,11 +102,16 @@ code when the event is raised.  (This is sometimes referred to as a 'callback'.)
 
 ### Prerequisites
 If you haven't used Toit before, there is a small set of prerequisites for a
-successful Toit project using this library:
-- Setting up Toit on your system and flashing your ESP32 - use Toit's [Getting Started Guide](https://docs.toit.io/getstarted)
-- Importing [packages](https://docs.toit.io/tutorials/setup/packages) (this libaray itself is a 'package') and accessing them in your projects
-- Understanding [Lambdas](https://docs.toit.io/language/blocks-and-lambdas) in Toit.
-- As a first example, make a [buzzer](https://docs.toit.io/tutorials/hardware/pwm-buzzer) alert you.  (See the other tutorials.  This is the tip of the iceberg!)
+successful Toit project, and to obtain and use this library:
+- Setting up Toit on your system and flashing your ESP32 - use Toit's [Getting
+  Started Guide](https://docs.toit.io/getstarted)
+- Importing [packages](https://docs.toit.io/tutorials/setup/packages) (this
+  libaray itself is a 'package') and accessing them in your projects
+- Understanding [Lambdas](https://docs.toit.io/language/blocks-and-lambdas) in
+  Toit.
+- As a first example, make a
+  [buzzer](https://docs.toit.io/tutorials/hardware/pwm-buzzer) alert you.  (See
+  the other tutorials too - this is the tip of the iceberg!)
 
 ### Possible events
 Urbandroid list their events on [Event List](https://sleep.urbandroid.org/docs/services/automation.html#events).
